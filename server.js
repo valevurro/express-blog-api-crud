@@ -28,16 +28,22 @@ const postRouter = require('./routers/post');
 app.use(express.static('public'));
 app.use(express.json());
 
+app.use("/api/post", postRouter);
+
 app.listen(port, () => {
     console.log(`Server in ascolto sulla porta http://localhost:${port}`);
 });
 
+// app.get('/', (req, res) => {
+//     res.send('Benvenuto nella home page');
+// });
+
+// app.get('/post', (req, res) => {
+//     res.json(post);
+// });
+
+// app.use('/api/post', postRouter);
+
 app.get('/', (req, res) => {
-    res.send('Benvenuto nella home page');
-});
-
-app.get('/post', (req, res) => {
-    res.json(post);
-});
-
-app.use('/api/post', postRouter);
+    res.send('Server attivo');
+})
